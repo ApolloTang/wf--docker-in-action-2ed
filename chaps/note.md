@@ -1,4 +1,11 @@
-2.1.1 (page 21)
+
+## ## 2.1.0 -- 2.1.2
+
+<img src="docs/fig2.1.png" />
+
+---
+
+nginx: 2.1.1 (page 21)
 
 ```
 docker run -d \
@@ -6,7 +13,7 @@ docker run -d \
 nginx:latest
 ```
 
-2.1.1 (page 22)
+mailer: 2.1.1 (page 22)
 
 ```
 cd wf--docker-in-action-2ed/chaps/02/02_mailer
@@ -20,14 +27,14 @@ dockerinaction_mailer:1.0
 
 
 
-2.1.2 (page 22-23)
+watcher (check): 2.1.2 (page 22-23)
 
 ```
 docker build -t dockerinaction_02agent:1.0 .
 
 docker run -it \
 --name web_test \
---link web \
+--link web \           # <--- [1]
 busybox:1.29 /bin/sh
 
 # wget -O - http://web:80/
@@ -46,7 +53,7 @@ working. Further configuration is required.</p>
 #^pq
 ```
 
-2.1.2 (page 23)
+watcher:2.1.2 (page 23)
 
 ```
 cd wf--docker-in-action-2ed/chaps/02/02_agent
@@ -55,7 +62,7 @@ docker build -t dockerinaction_02agent:1.0 .
 
 docker run -it \
 --name agent \
---link web:insideweb \
+--link web:insideweb \   # <--- [1]
 --link mailer:insidemailer \
 dockerinaction_02agent:1.0 
 
@@ -71,3 +78,7 @@ System up.
 ```
 docker stop $(docker ps -aq)
 ```
+---
+Ref: <br>
+[1] <br>
+⚠️ The `--link` flag has been deprecated. See [https://docs.docker.com/network/links/](https://docs.docker.com/network/links/)

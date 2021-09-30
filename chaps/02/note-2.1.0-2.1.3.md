@@ -100,7 +100,7 @@ dockerinaction_mailer         1.0       8448fd483424   2 months ago     1.24MB
 nginx                         latest    08b152afcfae   2 months ago     133MB
 ```
 
-Summary of images running container:
+Summary running container:
 
 ```
 % docker ps
@@ -111,7 +111,7 @@ a5ae14fd9a95   nginx:latest                "/docker-entrypoint.…"   80/tcp    
 ```
 
 ```
-docker stop $(docker ps -aq)
+docker stop $(docker ps -q)
 ```
 ---
 section 2.1.3 (page 24) <br>

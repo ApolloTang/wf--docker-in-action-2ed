@@ -24,7 +24,6 @@ WP_CID=$( \
   --read-only -v /run/apache2/ \
   --tmpfs /tmp \
   -e WORDPRESS_DB_NAME=$CLIENT_ID \
-  --read-only \
   wordpress:5.0.0-php7.2-apache \
 )
 docker start $WP_CID

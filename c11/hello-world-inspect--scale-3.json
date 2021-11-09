@@ -1,0 +1,141 @@
+[
+    {
+        "ID": "3do8qcbwel21sbq3essibe3il",
+        "Version": {
+            "Index": 27
+        },
+        "CreatedAt": "2021-11-09T04:33:21.0498162Z",
+        "UpdatedAt": "2021-11-09T05:45:45.4106607Z",
+        "Spec": {
+            "Name": "hello-world",
+            "Labels": {},
+            "TaskTemplate": {
+                "ContainerSpec": {
+                    "Image": "dockerinaction/ch11_service_hw:v1@sha256:4f92ec42207773b4ea97afe03469ff30598d08dd2ec4a28e05550b3ba4bc5fd5",
+                    "Init": false,
+                    "StopGracePeriod": 10000000000,
+                    "DNSConfig": {},
+                    "Isolation": "default"
+                },
+                "Resources": {
+                    "Limits": {},
+                    "Reservations": {}
+                },
+                "RestartPolicy": {
+                    "Condition": "any",
+                    "Delay": 5000000000,
+                    "MaxAttempts": 0
+                },
+                "Placement": {
+                    "Platforms": [
+                        {
+                            "Architecture": "amd64",
+                            "OS": "linux"
+                        }
+                    ]
+                },
+                "ForceUpdate": 0,
+                "Runtime": "container"
+            },
+            "Mode": {
+                "Replicated": {
+                    "Replicas": 3
+                }
+            },
+            "UpdateConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "RollbackConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "EndpointSpec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 80,
+                        "PublishedPort": 8080,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            }
+        },
+        "PreviousSpec": {
+            "Name": "hello-world",
+            "Labels": {},
+            "TaskTemplate": {
+                "ContainerSpec": {
+                    "Image": "dockerinaction/ch11_service_hw:v1@sha256:4f92ec42207773b4ea97afe03469ff30598d08dd2ec4a28e05550b3ba4bc5fd5",
+                    "Init": false,
+                    "DNSConfig": {},
+                    "Isolation": "default"
+                },
+                "Resources": {
+                    "Limits": {},
+                    "Reservations": {}
+                },
+                "Placement": {
+                    "Platforms": [
+                        {
+                            "Architecture": "amd64",
+                            "OS": "linux"
+                        }
+                    ]
+                },
+                "ForceUpdate": 0,
+                "Runtime": "container"
+            },
+            "Mode": {
+                "Replicated": {
+                    "Replicas": 1
+                }
+            },
+            "EndpointSpec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 80,
+                        "PublishedPort": 8080,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            }
+        },
+        "Endpoint": {
+            "Spec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 80,
+                        "PublishedPort": 8080,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            },
+            "Ports": [
+                {
+                    "Protocol": "tcp",
+                    "TargetPort": 80,
+                    "PublishedPort": 8080,
+                    "PublishMode": "ingress"
+                }
+            ],
+            "VirtualIPs": [
+                {
+                    "NetworkID": "6jeia0tnuda7ya1f7weu8w40g",
+                    "Addr": "10.0.0.3/24"
+                }
+            ]
+        }
+    }
+]
